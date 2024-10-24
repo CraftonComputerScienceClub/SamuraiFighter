@@ -1,0 +1,5 @@
+Godot Engine v3.2.3.stable.custom_build - https://godotengine.org
+OpenGL ES 3.0 Renderer: REMBRANDT (rembrandt, LLVM 15.0.7, DRM 3.42, 5.15.0-106-generic)
+ 
+**ERROR**: Condition "default_certs != __null" is true.
+   At: modules/mbedtls/crypto_mbedtls.cpp:201:load_default_certificates() - Condition "default_certs != __null" is true.

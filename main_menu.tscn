@@ -1,0 +1,210 @@
+[gd_scene load_steps=18 format=3 uid="uid://cvlgqeuuwjed7"]
+
+[ext_resource type="Script" path="res://scripts/main_menu/buttons/auto_select.gd" id="1_giidt"]
+[ext_resource type="Script" path="res://scripts/main_menu/buttons/button_hover_scale_animation.gd" id="1_i4ru8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sy7xn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kec75"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vq4mo"]
+
+[sub_resource type="Animation" id="Animation_yirqu"]
+length = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_nmfah"]
+resource_name = "Select"
+length = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0f1kv"]
+_data = {
+"RESET": SubResource("Animation_yirqu"),
+"Select": SubResource("Animation_nmfah")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_161cc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2egg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bs7sy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0jb1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lekou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq2i2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gvx4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kj5bl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdosn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 85
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 55
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(300, 330)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="FightControl" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="FightButton" type="Button" parent="MarginContainer/VBoxContainer/FightControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.157
+anchor_bottom = 1.0
+offset_top = -0.5
+offset_right = -0.100002
+offset_bottom = 0.5
+grow_vertical = 2
+pivot_offset = Vector2(0, 15.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sy7xn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kec75")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vq4mo")
+text = "Fight"
+alignment = 0
+script = ExtResource("1_i4ru8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/FightControl/FightButton"]
+libraries = {
+"": SubResource("AnimationLibrary_0f1kv")
+}
+
+[node name="AutoSelect" type="Node" parent="MarginContainer/VBoxContainer/FightControl/FightButton"]
+script = ExtResource("1_giidt")
+
+[node name="SettingsControl" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.017
+anchor_right = 0.233
+anchor_bottom = 1.0
+offset_top = 0.0100001
+offset_right = 0.0999985
+offset_bottom = 0.5
+grow_vertical = 2
+pivot_offset = Vector2(0, 15.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_161cc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m2egg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bs7sy")
+text = "Settings"
+script = ExtResource("1_i4ru8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/SettingsControl/SettingsButton"]
+libraries = {
+"": SubResource("AnimationLibrary_0f1kv")
+}
+
+[node name="CreditsControl" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/CreditsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.017
+anchor_right = 0.21
+anchor_bottom = 1.0
+offset_top = 0.0100001
+offset_bottom = 0.5
+grow_vertical = 2
+pivot_offset = Vector2(0, 15.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0jb1q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_lekou")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oq2i2")
+text = "Credits
+"
+script = ExtResource("1_i4ru8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/CreditsControl/CreditsButton"]
+libraries = {
+"": SubResource("AnimationLibrary_0f1kv")
+}
+
+[node name="QuitControl" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/QuitControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.14
+anchor_bottom = 1.0
+offset_top = -0.5
+offset_bottom = 0.5
+grow_vertical = 2
+pivot_offset = Vector2(0, 15.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5gvx4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kj5bl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gdosn")
+text = "Quit"
+script = ExtResource("1_i4ru8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/QuitControl/QuitButton"]
+libraries = {
+"": SubResource("AnimationLibrary_0f1kv")
+}
