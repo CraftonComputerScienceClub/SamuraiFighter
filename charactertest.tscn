@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://qexv0at04u7t"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_at464"]
+[ext_resource type="Texture2D" uid="uid://b6egedkcpp7r8" path="res://tempchar.png" id="2_yrum4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy84b"]
+size = Vector2(128, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_toew6"]
+size = Vector2(1336, 118)
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(147, 147)
+script = ExtResource("1_at464")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-7, -33)
+scale = Vector2(0.347656, 0.395833)
+texture = ExtResource("2_yrum4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(15, 4)
+shape = SubResource("RectangleShape2D_uy84b")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(3, 529)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 1325.0
+offset_bottom = 121.0
+color = Color(6.257e-07, 0.402399, 0.105808, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(658, 63)
+shape = SubResource("RectangleShape2D_toew6")
