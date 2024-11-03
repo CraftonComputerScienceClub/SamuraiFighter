@@ -1,13 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://5u1hpbrg23fb"]
+[gd_scene load_steps=11 format=3 uid="uid://5u1hpbrg23fb"]
 
 [ext_resource type="Script" path="res://scripts/cora_character/player.gd" id="1_ce1ng"]
 [ext_resource type="Texture2D" uid="uid://b6egedkcpp7r8" path="res://tempchar.png" id="2_vsbwh"]
+[ext_resource type="Texture2D" uid="uid://dy4fvyxl42lkc" path="res://assets/textures/light_attack.png" id="3_j6xy7"]
+[ext_resource type="Texture2D" uid="uid://bjsqxi3hp2t58" path="res://assets/textures/great_attack.png" id="4_ils70"]
+[ext_resource type="Texture2D" uid="uid://dxla3ykq7j4k5" path="res://assets/textures/heavy_attack_marker.png" id="5_2i7gj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p8st"]
-size = Vector2(128, 224)
+size = Vector2(68, 203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmmn2"]
+size = Vector2(147, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4trk"]
+size = Vector2(112, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ereee"]
+size = Vector2(218, 301)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxp00"]
-size = Vector2(1336, 118)
+size = Vector2(2593, 118)
 
 [node name="CoraCharacter" type="Node2D"]
 
@@ -21,34 +33,88 @@ scale = Vector2(0.347656, 0.395833)
 texture = ExtResource("2_vsbwh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(15, 4)
+position = Vector2(11, 1.5)
 shape = SubResource("RectangleShape2D_4p8st")
 
+[node name="melee" type="Node2D" parent="Player"]
+
+[node name="horizontal_light_attack" type="Area2D" parent="Player/melee"]
+visible = false
+position = Vector2(110, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/melee/horizontal_light_attack"]
+position = Vector2(39, 0)
+scale = Vector2(1.60938, 1)
+texture = ExtResource("3_j6xy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/melee/horizontal_light_attack"]
+position = Vector2(41.5, -1)
+shape = SubResource("RectangleShape2D_gmmn2")
+
+[node name="down_light_attack" type="Area2D" parent="Player/melee"]
+visible = false
+position = Vector2(15, 141)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/melee/down_light_attack"]
+position = Vector2(-0.252536, 9.98477)
+rotation = 1.5708
+scale = Vector2(0.750238, 1.0898)
+texture = ExtResource("3_j6xy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/melee/down_light_attack"]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_f4trk")
+
+[node name="up_light_attack" type="Area2D" parent="Player/melee"]
+visible = false
+position = Vector2(15, -162)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/melee/up_light_attack"]
+position = Vector2(-0.252536, 9.98477)
+rotation = -1.5708
+scale = Vector2(0.750238, 1.0898)
+texture = ExtResource("3_j6xy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/melee/up_light_attack"]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_f4trk")
+
+[node name="great_attack" type="Area2D" parent="Player/melee"]
+visible = false
+position = Vector2(122, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/melee/great_attack"]
+position = Vector2(63, 0)
+scale = Vector2(1.98437, 2.35938)
+texture = ExtResource("4_ils70")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/melee/great_attack"]
+position = Vector2(66, 0.5)
+shape = SubResource("RectangleShape2D_ereee")
+
+[node name="heavy_attack_marker" type="Node2D" parent="Player"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/heavy_attack_marker"]
+z_index = -20
+position = Vector2(15, 4)
+scale = Vector2(1.5625, 2.07812)
+texture = ExtResource("5_2i7gj")
+
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(6, 541)
+position = Vector2(-82, 915)
 
 [node name="ColorRect" type="ColorRect" parent="Floor"]
-offset_left = -6.0
+offset_left = -635.0
 offset_top = 6.0
-offset_right = 1325.0
+offset_right = 1954.0
 offset_bottom = 121.0
 color = Color(6.257e-07, 0.402399, 0.105808, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(658, 63)
+position = Vector2(659.5, 63)
 shape = SubResource("RectangleShape2D_cxp00")
 
-[node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2(664, 457)
-
-[node name="ColorRect" type="ColorRect" parent="Floor2"]
-offset_left = -6.0
-offset_top = 6.0
-offset_right = 1325.0
-offset_bottom = 121.0
-color = Color(6.257e-07, 0.402399, 0.105808, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-position = Vector2(658, 63)
-shape = SubResource("RectangleShape2D_cxp00")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 302)
+zoom = Vector2(0.445, 0.445)
