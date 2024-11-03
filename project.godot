@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SamuraiFighter"
-run/main_scene="res://charactertest.tscn"
+run/main_scene="res://scenes/cora_character.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://5u1hpbrg23fb"]
+
+[ext_resource type="Script" path="res://scripts/cora_character/player.gd" id="1_ce1ng"]
+[ext_resource type="Texture2D" uid="uid://b6egedkcpp7r8" path="res://tempchar.png" id="2_vsbwh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4p8st"]
+size = Vector2(128, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxp00"]
+size = Vector2(1336, 118)
+
+[node name="CoraCharacter" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(147, 147)
+script = ExtResource("1_ce1ng")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-7, -33)
+scale = Vector2(0.347656, 0.395833)
+texture = ExtResource("2_vsbwh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(15, 4)
+shape = SubResource("RectangleShape2D_4p8st")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(6, 541)
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 1325.0
+offset_bottom = 121.0
+color = Color(6.257e-07, 0.402399, 0.105808, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(658, 63)
+shape = SubResource("RectangleShape2D_cxp00")
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(664, 457)
+
+[node name="ColorRect" type="ColorRect" parent="Floor2"]
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 1325.0
+offset_bottom = 121.0
+color = Color(6.257e-07, 0.402399, 0.105808, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(658, 63)
+shape = SubResource("RectangleShape2D_cxp00")
