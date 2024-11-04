@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://by5ygbwvhoy5y"]
+
+[ext_resource type="Texture2D" uid="uid://c3dvrocktkbju" path="res://art/samurai_fighter_map_selection.png" id="1_oecsv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e311i"]
+
+[node name="map_selection_gui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_menu" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_oecsv")
+
+[node name="map_1" type="VBoxContainer" parent="map_menu"]
+layout_mode = 1
+offset_left = 257.0
+offset_top = 433.0
+offset_right = 450.0
+offset_bottom = 586.0
+
+[node name="map_1_button" type="MenuButton" parent="map_menu/map_1"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+text = "Map 1"
+
+[node name="map_2" type="VBoxContainer" parent="map_menu"]
+offset_left = 560.0
+offset_top = 391.0
+offset_right = 753.0
+offset_bottom = 544.0
+
+[node name="map_2_button" type="MenuButton" parent="map_menu/map_2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+text = "Map 2"
+
+[node name="map_3" type="VBoxContainer" parent="map_menu"]
+layout_mode = 2
+offset_left = 866.0
+offset_top = 392.0
+offset_right = 1074.0
+offset_bottom = 537.0
+
+[node name="map_3_button" type="MenuButton" parent="map_menu/map_3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+text = "Map 3"
+
+[node name="map_4" type="VBoxContainer" parent="map_menu"]
+offset_left = 608.0
+offset_top = 87.0
+offset_right = 801.0
+offset_bottom = 240.0
+
+[node name="map_4_button" type="MenuButton" parent="map_menu/map_4"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+text = "Map 4"
+
+[node name="map_5" type="VBoxContainer" parent="map_menu"]
+layout_mode = 2
+offset_left = 909.0
+offset_top = 83.0
+offset_right = 1102.0
+offset_bottom = 246.0
+
+[node name="map_5_button" type="MenuButton" parent="map_menu/map_5"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+text = "Map 5"
