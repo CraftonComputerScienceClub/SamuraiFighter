@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://by5ygbwvhoy5y"]
+[gd_scene load_steps=4 format=3 uid="uid://by5ygbwvhoy5y"]
 
 [ext_resource type="Texture2D" uid="uid://c3dvrocktkbju" path="res://art/samurai_fighter_map_selection.png" id="1_oecsv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e311i"]
+[ext_resource type="Script" path="res://scripts/main_menu/buttons/button_hover_scale_animation.gd" id="2_oh3pp"]
+[ext_resource type="Script" path="res://scripts/main_menu/buttons/auto_select.gd" id="3_e53ag"]
 
 [node name="map_selection_gui" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="map_menu" type="NinePatchRect" parent="."]
+[node name="MapMenu" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,65 +21,169 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_oecsv")
 
-[node name="map_1" type="VBoxContainer" parent="map_menu"]
+[node name="Map1" type="VBoxContainer" parent="MapMenu"]
 layout_mode = 1
-offset_left = 257.0
-offset_top = 433.0
-offset_right = 450.0
-offset_bottom = 586.0
+offset_left = 240.0
+offset_top = 445.0
+offset_right = 440.0
+offset_bottom = 598.0
 
-[node name="map_1_button" type="MenuButton" parent="map_menu/map_1"]
-modulate = Color(0, 0, 0, 1)
+[node name="Map1Control" type="Control" parent="MapMenu/Map1"]
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+
+[node name="Map1Button" type="Button" parent="MapMenu/Map1/Map1Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Map 1"
+script = ExtResource("2_oh3pp")
 
-[node name="map_2" type="VBoxContainer" parent="map_menu"]
-offset_left = 560.0
-offset_top = 391.0
-offset_right = 753.0
-offset_bottom = 544.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapMenu/Map1/Map1Control/Map1Button"]
 
-[node name="map_2_button" type="MenuButton" parent="map_menu/map_2"]
-modulate = Color(0, 0, 0, 1)
+[node name="Map1Image" type="TextureRect" parent="MapMenu/Map1"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+texture = ExtResource("1_oecsv")
+expand_mode = 5
+
+[node name="Map2" type="VBoxContainer" parent="MapMenu"]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 400.0
+offset_right = 757.0
+offset_bottom = 553.0
+
+[node name="Map2Control" type="Control" parent="MapMenu/Map2"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Map2Button" type="Button" parent="MapMenu/Map2/Map2Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Map 2"
+script = ExtResource("2_oh3pp")
 
-[node name="map_3" type="VBoxContainer" parent="map_menu"]
-layout_mode = 2
-offset_left = 866.0
-offset_top = 392.0
-offset_right = 1074.0
-offset_bottom = 537.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapMenu/Map2/Map2Control/Map2Button"]
 
-[node name="map_3_button" type="MenuButton" parent="map_menu/map_3"]
-modulate = Color(0, 0, 0, 1)
+[node name="Map2Image" type="TextureRect" parent="MapMenu/Map2"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+texture = ExtResource("1_oecsv")
+expand_mode = 5
+
+[node name="Map3" type="VBoxContainer" parent="MapMenu"]
+layout_mode = 2
+offset_left = 877.0
+offset_top = 354.0
+offset_right = 1085.0
+offset_bottom = 499.0
+
+[node name="Map3Control" type="Control" parent="MapMenu/Map3"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Map3Button" type="Button" parent="MapMenu/Map3/Map3Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Map 3"
+script = ExtResource("2_oh3pp")
 
-[node name="map_4" type="VBoxContainer" parent="map_menu"]
-offset_left = 608.0
-offset_top = 87.0
-offset_right = 801.0
-offset_bottom = 240.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapMenu/Map3/Map3Control/Map3Button"]
 
-[node name="map_4_button" type="MenuButton" parent="map_menu/map_4"]
-modulate = Color(0, 0, 0, 1)
+[node name="AutoSelect" type="Node" parent="MapMenu/Map3/Map3Control/Map3Button"]
+script = ExtResource("3_e53ag")
+
+[node name="Map3Image" type="TextureRect" parent="MapMenu/Map3"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+texture = ExtResource("1_oecsv")
+expand_mode = 5
+
+[node name="Map4" type="VBoxContainer" parent="MapMenu"]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 94.0
+offset_right = 794.0
+offset_bottom = 247.0
+
+[node name="Map4Control" type="Control" parent="MapMenu/Map4"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Map4Button" type="Button" parent="MapMenu/Map4/Map4Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Map 4"
+script = ExtResource("2_oh3pp")
 
-[node name="map_5" type="VBoxContainer" parent="map_menu"]
-layout_mode = 2
-offset_left = 909.0
-offset_top = 83.0
-offset_right = 1102.0
-offset_bottom = 246.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapMenu/Map4/Map4Control/Map4Button"]
 
-[node name="map_5_button" type="MenuButton" parent="map_menu/map_5"]
-modulate = Color(0, 0, 0, 1)
+[node name="Map4Image" type="TextureRect" parent="MapMenu/Map4"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_e311i")
+texture = ExtResource("1_oecsv")
+expand_mode = 5
+
+[node name="Map5" type="VBoxContainer" parent="MapMenu"]
+layout_mode = 2
+offset_left = 903.0
+offset_top = 51.0
+offset_right = 1103.0
+offset_bottom = 214.0
+
+[node name="Map5Control" type="Control" parent="MapMenu/Map5"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Map5Button" type="Button" parent="MapMenu/Map5/Map5Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Map 5"
+script = ExtResource("2_oh3pp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapMenu/Map5/Map5Control/Map5Button"]
+
+[node name="Map5Image" type="TextureRect" parent="MapMenu/Map5"]
+layout_mode = 2
+texture = ExtResource("1_oecsv")
+expand_mode = 5
+
+[node name="Back" type="VBoxContainer" parent="MapMenu"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 0
+offset_left = 75.0
+offset_top = 561.0
+offset_right = 125.0
+offset_bottom = 593.0
+
+[node name="BackControl" type="Control" parent="MapMenu/Back"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MapMenu/Back/BackControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+script = ExtResource("2_oh3pp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapMenu/Back/BackControl/BackButton"]
