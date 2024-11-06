@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5u1hpbrg23fb"]
+[gd_scene load_steps=12 format=3 uid="uid://5u1hpbrg23fb"]
 
 [ext_resource type="Script" path="res://scripts/cora_character/player.gd" id="1_ce1ng"]
 [ext_resource type="Texture2D" uid="uid://b6egedkcpp7r8" path="res://tempchar.png" id="2_vsbwh"]
@@ -13,10 +13,13 @@ size = Vector2(68, 203)
 size = Vector2(147, 114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4trk"]
-size = Vector2(112, 77)
+size = Vector2(112, 132)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ereee"]
 size = Vector2(218, 301)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32asy"]
+size = Vector2(74, 1348)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxp00"]
 size = Vector2(2593, 118)
@@ -56,27 +59,27 @@ visible = false
 position = Vector2(15, 141)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/melee/down_light_attack"]
-position = Vector2(-0.252536, 9.98477)
+position = Vector2(-0.252605, 29.0336)
 rotation = 1.5708
-scale = Vector2(0.750238, 1.0898)
+scale = Vector2(1.04788, 1.0898)
 texture = ExtResource("3_j6xy7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/melee/down_light_attack"]
-position = Vector2(0, 10.5)
+position = Vector2(0, 28.5)
 shape = SubResource("RectangleShape2D_f4trk")
 
 [node name="up_light_attack" type="Area2D" parent="Player/melee"]
 visible = false
-position = Vector2(15, -162)
+position = Vector2(15, -168)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/melee/up_light_attack"]
-position = Vector2(-0.252536, 9.98477)
+position = Vector2(-0.252604, -8.83582)
 rotation = -1.5708
-scale = Vector2(0.750238, 1.0898)
+scale = Vector2(1.04431, 1.0898)
 texture = ExtResource("3_j6xy7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/melee/up_light_attack"]
-position = Vector2(0, 10.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_f4trk")
 
 [node name="great_attack" type="Area2D" parent="Player/melee"]
@@ -101,6 +104,34 @@ position = Vector2(15, 4)
 scale = Vector2(1.5625, 2.07812)
 texture = ExtResource("5_2i7gj")
 
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(-653, 217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-27, 26)
+shape = SubResource("RectangleShape2D_32asy")
+
+[node name="ColorRect" type="ColorRect" parent="Wall"]
+offset_left = -64.0
+offset_top = -646.0
+offset_right = 10.0
+offset_bottom = 698.0
+color = Color(9.07265e-06, 0.681845, 5.77569e-07, 1)
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(1872, 217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(-27, 26)
+shape = SubResource("RectangleShape2D_32asy")
+
+[node name="ColorRect" type="ColorRect" parent="Wall2"]
+offset_left = -64.0
+offset_top = -646.0
+offset_right = 10.0
+offset_bottom = 698.0
+color = Color(9.07265e-06, 0.681845, 5.77569e-07, 1)
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-82, 915)
 
@@ -112,6 +143,20 @@ offset_bottom = 121.0
 color = Color(6.257e-07, 0.402399, 0.105808, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(659.5, 63)
+shape = SubResource("RectangleShape2D_cxp00")
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2(-82, -429)
+
+[node name="ColorRect" type="ColorRect" parent="Ceiling"]
+offset_left = -635.0
+offset_top = 6.0
+offset_right = 1954.0
+offset_bottom = 121.0
+color = Color(6.257e-07, 0.402399, 0.105808, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
 position = Vector2(659.5, 63)
 shape = SubResource("RectangleShape2D_cxp00")
 
